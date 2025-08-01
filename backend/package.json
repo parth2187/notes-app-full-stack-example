@@ -1,0 +1,14 @@
+{
+  "name": "notes-api",
+  "version": "1.0.0",
+  "description": "A simple file-based Note API built with Node.js",
+  "license": "ISC",
+  "author": "Parth Kawatra",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
