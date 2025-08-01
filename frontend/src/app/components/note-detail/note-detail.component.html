@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10">
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h1 class="card-title h4 mb-0">
+            {{ note?.title || 'Loading...' }}
+          </h1>
+        </div>
+
+        <div class="card-body">
+          <div class="note-content">
+            <p class="lead">
+              {{ note?.content || 'Loading note details...' }}
+            </p>
+          </div>
+        </div>
+
+`        <div class="card-footer bg-light">
+          <button class="btn btn-primary" (click)="goBack()">
+            <i class="bi bi-arrow-left"></i> Go Back
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

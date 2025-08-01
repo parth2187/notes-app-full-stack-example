@@ -1,0 +1,57 @@
+<form #noteForm="ngForm" (ngSubmit)="onSubmit(noteForm)" class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h5 class="card-title mb-0">Create New Note</h5>
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <label for="title" class="form-label fw-bold" >Title</label>
+            <input
+              type="text"
+              [(ngModel)]="title"
+              class="form-control form-control-md"
+              id="title"
+              placeholder="Enter note title"
+              name="title"
+              required>
+            <div class="invalid-feedback">
+              Please provide a valid title.
+            </div>
+          </div>
+
+          <!-- Note Content -->
+          <div class="mb-3">
+            <label for="notes-textarea" class="form-label fw-bold">Note Content</label>
+            <textarea
+              class="form-control"
+              id="notes-textarea"
+              name="content"
+              rows="5"
+              placeholder="Write your note here..."
+              required
+              [(ngModel)]="content"
+              ></textarea>
+            <div class="invalid-feedback">
+              Please provide note content.
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <button type="button" class="btn btn-outline-secondary" routerLink="/notes" >
+              <i class="bi bi-arrow-left"></i> Cancel
+            </button>
+            <div>
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-check-lg"></i> Save Note
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
