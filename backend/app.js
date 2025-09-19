@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const connectDB = require('./src/configs/database');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -13,6 +14,12 @@ const notesRoutes = require('./src/routes/notes.routes');
 
 app.use('/notes',notesRoutes);
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost${PORT}`);
-});
+connectDB().then(() => {
+  console.log("Database Connection is established!");
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+  });
+})
+.catch((err) => {
+    console.error('Database cannot be connected!', err.message);
+})
