@@ -3,12 +3,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
 import { NoteService } from '../../services/note.service';
-
-interface NotesData {
-  id: number,
-  content: string,
-  title: string,
-}
+import { NotesData } from '../../../models/notes.model';
 
 @Component({
   selector: 'app-note-list',
@@ -28,7 +23,7 @@ export class NoteListComponent implements OnInit {
 }
 
 
-deleteNote(id: number, title: string) {
+deleteNote(id: string, title: string) {
   Swal.fire({
     title: 'Confirmation',
     text: `Are you sure you want to delete "${title}"?`,

@@ -2,12 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-
-interface NotesData {
-  id: number,
-  content: string,
-  title: string,
-}
+import { NotesData } from '../../models/notes.model';
 
 interface AddNoteRequest {
   title: string;
@@ -19,38 +14,7 @@ interface AddNoteRequest {
 })
 export class NoteService {
   // private dataUrl = 'assets/notes.json';
-  // private url = 'http://localhost:3000/';
      private apiUrl = environment.apiUrl;
-
-
-//   notes: NotesData[] = [
-//   {
-//     id: 1,
-//     title: "Angular Best Practices",
-//     content: "Always use OnPush change detection strategy for better performance. Use trackBy functions in *ngFor loops to optimize rendering."
-//   },
-//   {
-//     id: 2,
-//     title: "RxJS Operators",
-//     content: "Remember to use switchMap for HTTP requests that can be cancelled, mergeMap for concurrent operations, and concatMap for sequential operations."
-//   },
-//   {
-//     id: 3,
-//     title: "TypeScript Tips",
-//     content: "Use strict mode in tsconfig.json. Always define return types for functions and use interfaces for object structures."
-//   },
-//   {
-//     id: 4,
-//     title: "Component Communication",
-//     content: "Use @Input() and @Output() for parent-child communication. For complex state management, consider using services with BehaviorSubject."
-//   },
-//   {
-//     id: 5,
-//     title: "Angular Forms",
-//     content: "Reactive forms are preferred over template-driven forms for complex validation scenarios. Use FormBuilder service to create form groups efficiently."
-//   }
-// ];
-
 
 
   constructor(private http:HttpClient) { }
@@ -59,7 +23,7 @@ export class NoteService {
     return this.http.get<NotesData[]>(`${this.apiUrl}notes`);
   }
 
-  getNotebyId(id:number):Observable<NotesData> {
+  getNotebyId(id:string):Observable<NotesData> {
     return this.http.get<NotesData>(`${this.apiUrl}notes/${id}`)
   }
 
@@ -67,7 +31,7 @@ export class NoteService {
     return this.http.post<NotesData[]>(`${this.apiUrl}notes`, noteData);
   }
 
-  deleteNote(id: number): Observable<NotesData[]> {
+  deleteNote(id: string): Observable<NotesData[]> {
     return this.http.delete<NotesData[]>(`${this.apiUrl}notes/${id}`);
   }
 }

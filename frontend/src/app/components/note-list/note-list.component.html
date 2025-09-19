@@ -1,5 +1,5 @@
 <div class="container mt-4">
-  
+
   <div class="row">
     <div class="col-12">
       <div *ngIf="notes.length === 0" class="text-center py-5">
@@ -18,14 +18,14 @@
           <div class="card h-100 shadow-sm hover-card">
             <div class="card-body">
               <h5 class="card-title">
-                <a [routerLink]="['/notes', note.id]" class="text-decoration-none text-primary cursor-pointer hover-title">
+                <a [routerLink]="['/notes', note._id]" class="text-decoration-none text-primary cursor-pointer hover-title">
                   {{ note.title }}
                 </a>
               </h5>
 
                 <button
                   class="btn btn-outline-danger btn-sm"
-                  (click)="deleteNote(note.id, note.title)"
+                  (click)="deleteNote(note._id, note.title)"
                   [attr.aria-label]="'Delete note: ' + note.title">
                   <i class="bi bi-trash"></i> Delete
                 </button>

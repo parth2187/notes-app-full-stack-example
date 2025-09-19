@@ -1,12 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { NoteService } from '../../services/note.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
-interface NotesData {
-  id: number;
-  title: string;
-  content: string;
-}
+import { NotesData } from '../../../models/notes.model';
 
 @Component({
   selector: 'app-note-detail',
