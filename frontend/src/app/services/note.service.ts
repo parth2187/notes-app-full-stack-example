@@ -20,18 +20,18 @@ export class NoteService {
   constructor(private http:HttpClient) { }
 
   getAllNotes():Observable<NotesData[]>{
-    return this.http.get<NotesData[]>(`${this.apiUrl}notes`);
+    return this.http.get<NotesData[]>(`${this.apiUrl}/notes`);
   }
 
   getNotebyId(id:string):Observable<NotesData> {
-    return this.http.get<NotesData>(`${this.apiUrl}notes/${id}`)
+    return this.http.get<NotesData>(`${this.apiUrl}/notes/${id}`)
   }
 
   addNote(noteData: AddNoteRequest): Observable<NotesData[]> {
-    return this.http.post<NotesData[]>(`${this.apiUrl}notes`, noteData);
+    return this.http.post<NotesData[]>(`${this.apiUrl}/notes`, noteData);
   }
 
   deleteNote(id: string): Observable<NotesData[]> {
-    return this.http.delete<NotesData[]>(`${this.apiUrl}notes/${id}`);
+    return this.http.delete<NotesData[]>(`${this.apiUrl}/notes/${id}`);
   }
 }
