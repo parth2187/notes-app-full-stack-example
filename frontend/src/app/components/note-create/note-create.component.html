@@ -16,7 +16,10 @@
               id="title"
               placeholder="Enter note title"
               name="title"
-              required>
+              #titleInput="ngModel"
+              required
+              [class.is-invalid]="titleInput.invalid && (titleInput.dirty || titleInput.touched)"
+              >
             <div class="invalid-feedback">
               Please provide a valid title.
             </div>
@@ -33,6 +36,8 @@
               placeholder="Write your note here..."
               required
               [(ngModel)]="content"
+              #contentInput="ngModel"
+              [class.is-invalid]="contentInput.invalid && (contentInput.dirty || contentInput.touched)"
               ></textarea>
             <div class="invalid-feedback">
               Please provide note content.
@@ -44,7 +49,7 @@
               <i class="bi bi-arrow-left"></i> Cancel
             </button>
             <div>
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" class="btn btn-primary" [disabled]="noteForm.invalid">
                 <i class="bi bi-check-lg"></i> Save Note
               </button>
             </div>
